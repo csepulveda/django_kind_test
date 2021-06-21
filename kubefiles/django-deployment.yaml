@@ -29,9 +29,9 @@ spec:
         - manage.py
         - runserver
         - 0.0.0.0:8000
-        image: mydjango
+        image: mydjango:latest
         imagePullPolicy: Never
-        name: django:latest
+        name: django
         ports:
         - containerPort: 8000
         resources: {}
