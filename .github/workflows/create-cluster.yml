@@ -34,9 +34,6 @@ jobs:
           sleep 60
           kubectl get pods
           kubectl get services
-          sleep 60
-          kubectl get pods
-          kubectl get services
           kubectl port-forward service/django 8000:8000 &
 
       - name: Check Homepage
