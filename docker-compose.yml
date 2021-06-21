@@ -7,10 +7,15 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  migration:
+    image: mydjango:latest
+    command: python manage migrate
+    depends_on:
+      - postgres
   django:
     image: mydjango:latest
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:
-      - postgres
+      - migration
