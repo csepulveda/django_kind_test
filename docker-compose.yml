@@ -9,7 +9,7 @@ services:
       - POSTGRES_PASSWORD=postgres
   migration:
     image: mydjango:latest
-    command: python manage migrate
+    command: python manage.py migrate
     depends_on:
       - postgres
   django:
