@@ -14,11 +14,13 @@ jobs:
 
       - name: Build
         run: |
-          docker build . -t mydjango:$GITHUB_SHA
-          kind load docker-image mydjango:$GITHUB_SHA --name "chart-testing"
+          docker build . -t mydjango:latest
+          kind load docker-image mydjango:latest --name "chart-testing"
 
       - name: Deploy on kube
-        run: kubectl apply -f kubefiles/
+        run: |
+          sed -i kubefiles/django-deployment.yaml 's/latest/test/g
+          kubectl apply -f kubefiles/
       
       - name: Some sleep...
         run: |

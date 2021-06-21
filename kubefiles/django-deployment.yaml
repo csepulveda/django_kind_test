@@ -30,7 +30,7 @@ spec:
         - runserver
         - 0.0.0.0:8000
         image: mydjango:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         name: django
         ports:
         - containerPort: 8000
