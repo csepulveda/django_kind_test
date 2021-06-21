@@ -15,5 +15,14 @@ jobs:
       - name: Build
         run: docker build . -t mydjango
 
-      - name: deploy on kube
+      - name: Deploy on kube
         run: kubectl apply -f kubefiles/
+      
+      - name: some sleep...
+        run: sleep 30
+
+      - name: Get some logs
+        run: kubectl logs -l name=django
+
+      - name: Check Homepage
+        run: curl localhost:8000
