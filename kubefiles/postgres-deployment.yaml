@@ -34,6 +34,8 @@ spec:
         image: postgres
         imagePullPolicy: ""
         name: postgres
+        ports:
+        - containerPort: 5432
         resources: {}
       restartPolicy: Always
       serviceAccountName: ""
