@@ -19,7 +19,6 @@ jobs:
 
       - name: Deploy on kube
         run: |
-          sed -i kubefiles/django-deployment.yaml 's/latest/test/g
           kubectl apply -f kubefiles/
       
       - name: Some sleep...
