@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: |
           docker build . -t mydjango
-          kind load docker-image mydjango
+          kind load docker-image mydjango --name "chart-testing"
 
       - name: Deploy on kube
         run: kubectl apply -f kubefiles/
