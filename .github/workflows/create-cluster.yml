@@ -18,8 +18,11 @@ jobs:
       - name: Deploy on kube
         run: kubectl apply -f kubefiles/
       
-      - name: some sleep...
-        run: sleep 30
+      - name: Some sleep...
+        run: 
+          - sleep 15
+          - kubectl get pods
+          - kubectl get services
 
       - name: Get some logs
         run: kubectl logs -l name=django
