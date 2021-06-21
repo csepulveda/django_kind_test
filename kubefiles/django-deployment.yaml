@@ -31,7 +31,7 @@ spec:
         - 0.0.0.0:8000
         image: mydjango
         imagePullPolicy: Never
-        name: django
+        name: django:latest
         ports:
         - containerPort: 8000
         resources: {}
