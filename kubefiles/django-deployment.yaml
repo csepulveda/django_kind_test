@@ -23,6 +23,15 @@ spec:
       labels:
         io.kompose.service: django
     spec:
+      initContainers:
+      - args:
+        - python
+        - manage.py
+        - migrate
+        image: mydjango:latest
+        imagePullPolicy: IfNotPresent
+        name: django-init
+        resources: {}
       containers:
       - args:
         - python
