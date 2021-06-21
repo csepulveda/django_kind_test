@@ -29,10 +29,10 @@ jobs:
           sleep 15
           kubectl get pods
           kubectl get services
-          env
+          sleep 15
           kind export logs --name "chart-testing" /tmp/logs/
-          for i in $(find /tmp/logs/ -type f); do cat $i; done
+          for i in $(find /tmp/logs/ -type f); do echo $i; cat $i; done
 
 
-      - name: Check Homepage
-        run: curl localhost:8000
+      # - name: Check Homepage
+      #   run: curl localhost:8000
