@@ -16,4 +16,4 @@ jobs:
         run: docker build . -t mydjango
 
       - name: deploy on kube
-        run: kubeapply -f kubefiles/
+        run: kubectl apply -f kubefiles/
