@@ -27,8 +27,7 @@ jobs:
           kubectl get pods
           kubectl get services
           sleep 60
-          kubectl port-forward service/django 8000:8000
-
+          kubectl port-forward service/django 8000:8000 &
 
       - name: Check Homepage
         run: curl localhost:8000/healthz
