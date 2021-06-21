@@ -28,7 +28,7 @@ spec:
         - python
         - manage.py
         - migrate
-        image: mydjango:latest
+        image: csepulvedab/mydjango:latest
         imagePullPolicy: IfNotPresent
         name: django-init
         resources: {}
@@ -38,7 +38,7 @@ spec:
         - manage.py
         - runserver
         - 0.0.0.0:8000
-        image: mydjango:latest
+        image: csepulvedab/mydjango:latest
         imagePullPolicy: IfNotPresent
         name: django
         ports:
