@@ -29,7 +29,10 @@ jobs:
           sleep 15
           kubectl get pods
           kubectl get services
-          kubectl logs  pod/$(kubectl get pods | grep django | head -n1 | cut -d' ' -f1) -f
+          env
+          kind export logs --name "chart-testing" /tmp/logs/
+          for i in $(find /tmp/logs/ -type f); do cat $i; done
+
 
       - name: Check Homepage
         run: curl localhost:8000
