@@ -31,9 +31,7 @@ jobs:
           kubectl apply -f kubefiles/
           kubectl get pods
           kubectl get services
-          sleep 60
-          kubectl get pods
-          kubectl get services
+          kubectl wait --for=condition=ready pod --all --timeout=60s
           kubectl port-forward service/django 8000:8000 &
 
       - name: Check Homepage
