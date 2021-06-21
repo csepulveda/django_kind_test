@@ -23,9 +23,8 @@ jobs:
 
       - name : Push image
         run: |
-          docker push csepulvedab/mydjango:latest
           docker login -u csepulvedab -p ${{ secrets.DOCKERHUB_PASSWD }}
-          docker push 
+          docker push csepulvedab/mydjango:latest
 
       - name: Deploy on kube
         run: |
