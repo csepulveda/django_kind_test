@@ -26,13 +26,9 @@ jobs:
           kubectl apply -f kubefiles/
           kubectl get pods
           kubectl get services
-          sleep 15
-          kubectl get pods
-          kubectl get services
-          sleep 15
-          kind export logs --name "chart-testing" /tmp/logs/
-          for i in $(find /tmp/logs/ -type f); do echo $i; cat $i; done
+          sleep 60
+          kubectl port-forward service/django 8000:8000
 
 
-      # - name: Check Homepage
-      #   run: curl localhost:8000
+      - name: Check Homepage
+        run: curl localhost:8000/healthz
