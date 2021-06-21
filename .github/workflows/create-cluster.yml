@@ -16,7 +16,7 @@ jobs:
         run: docker build . -t mydjango:latest
 
       - name: Testing
-        run: docker run -it mydjango:latest pytest
+        run: docker run mydjango:latest pytest
 
       - name : Push image
         run: kind load docker-image mydjango:latest --name "chart-testing"
